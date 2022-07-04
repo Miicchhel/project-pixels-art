@@ -9,4 +9,14 @@ function criaPaletaDeCores() {
   }
 }
 
+function criaPixelBoard() {
+  const pixelBoard = document.querySelector('#pixel-board');
+  for (let index = 0; index < 25; index += 1) {
+    const novaDiv = document.createElement('div');
+    novaDiv.classList.add('pixel');
+    pixelBoard.appendChild(novaDiv);
+  }
+}
+
 criaPaletaDeCores();
+criaPixelBoard();
