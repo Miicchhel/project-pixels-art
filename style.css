@@ -1,5 +1,6 @@
 #color-palette {
   display: flex;
+  width: 108px;
 }
 
 .color {
@@ -8,9 +9,15 @@
   border: 1px solid black;
 }
 
+#clear-board {
+  margin-top: 5px;
+  padding: 4px;
+}
+
 #pixel-board {
   width: 200px;
   height: 200px;
+  margin-top: 5px;
   display: grid;
   grid-template-columns: repeat(5, 40px);
   grid-template-rows: repeat(5, 40px);

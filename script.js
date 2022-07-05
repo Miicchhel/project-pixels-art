@@ -2,6 +2,7 @@ const cores = ['black', 'red', 'blue', 'green'];
 const colorPalette = document.querySelector('#color-palette');
 const pixelBoard = document.querySelector('#pixel-board');
 const classesColorPalette = document.getElementsByClassName('color');
+const buttonLimpar = document.getElementById('clear-board');
 let cor = 'black';
 
 function criaPaletaDeCores() {
@@ -24,16 +25,20 @@ function criaPixelBoard() {
   }
 }
 
+function limpaPixelBoard() {
+  const pixels = document.querySelectorAll('.pixel');
+  for (let index = 0; index < pixels.length; index += 1) {
+    pixels[index].style.backgroundColor = 'white';
+  }
+}
+
 colorPalette.addEventListener('click', (event) => {
-  // console.log(event.target.style.backgroundColor);
-  // console.log(classesColorPalette[2].style.backgroundColor);
   for (let index = 0; index < classesColorPalette.length; index += 1) {
     classesColorPalette[index].classList = 'color';
     if (event.target.style.backgroundColor === classesColorPalette[index].style.backgroundColor) {
       event.target.classList.add('selected');
       cor = event.target.style.backgroundColor;
     } else {
-      classesColorPalette[index].classList.add('color');
       classesColorPalette[index].classList.remove('selected');
     }
   }
@@ -43,6 +48,8 @@ pixelBoard.addEventListener('click', (event) => {
   const pixel = event.target;
   pixel.style.backgroundColor = cor;
 });
+
+buttonLimpar.addEventListener('click', limpaPixelBoard);
 
 criaPaletaDeCores();
 criaPixelBoard();
